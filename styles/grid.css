@@ -510,6 +510,17 @@
   margin-bottom: 60px;
 }
 
+@media only screen and (max-width: 980px) {
+  .banner-intro__textos {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 13;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}
+
 .banner-intro__imagem {
   padding-left: 7%;
   -ms-grid-column: 7;
@@ -524,6 +535,15 @@
      object-fit: contain;
 }
 
+@media only screen and (max-width: 980px) {
+  .banner-intro__imagem {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 13;
+    padding-left: 0;
+  }
+}
+
 .btn {
   padding: 20px 30px;
   -webkit-box-sizing: border-box;
@@ -532,10 +552,112 @@
   color: white;
   background: #2F7472;
   border: 2px solid #2F7472;
+  display: inline-block;
 }
 
 .btn--reverse {
   color: #2F7472;
   background: white;
+}
+
+.bloco-info {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 24px;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bloco-info__textos {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 9;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.bloco-info__textos h5 {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.bloco-info__textos h2 {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 52px;
+}
+
+.bloco-info__textos p {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.bloco-info__passos {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 13;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 40px;
+  -ms-grid-columns: (minmax(22%, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
+}
+
+@media only screen and (max-width: 700px) {
+  .bloco-info__passos {
+    -ms-grid-columns: (minmax(-width-xs, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(-width-xs, 1fr));
+  }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 980px) {
+  .bloco-info__passos {
+    -ms-grid-columns: (minmax(-width-sm, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(-width-sm, 1fr));
+  }
+}
+
+@media only screen and (min-width: 981px) and (max-width: 1220px) {
+  .bloco-info__passos {
+    -ms-grid-columns: (minmax(22%, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
+  }
+}
+
+@media only screen and (min-width: 1221px) and (max-width: 1500px) {
+  .bloco-info__passos {
+    -ms-grid-columns: (minmax(22%, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
+  }
+}
+
+.bloco-info__passo {
+  border-radius: 130px;
+  padding: 6%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(13, 27, 62, 0.05);
+}
+
+.bloco-info__passo img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 /*# sourceMappingURL=grid.css.map */
