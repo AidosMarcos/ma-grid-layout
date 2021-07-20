@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <!-- <header class="ma-header ma-container__lg">
+        <img src='https://digital.grupoma.eu/media/1//DESIGN/logo.png' alt='MaDigital Grid Layout' class="ma-header__logo">
+        <nav class="ma-header__navigation">
+            <a href='exemplos.html'>Exemplo práticos</a>
+        </nav>
+    </header> -->
+
+    <section class="ma-section">
+        <span class="ma-title">CONTAINERS - LARGURAS</span>
+        <div class="ma-container" style="border: 1px solid red;">
+            <strong>.ma-container</strong> - Container basico sem max-width definido acompanha sempre a largura da pagina com with 95%
+        </div>
+        <div class="ma-container__lg" style="border: 1px solid blue;">
+            <strong>.ma-container__lg</strong> - Possibilidade de definir um max-width por variavel css (--max-width-lg), com valor default de 1600px;
+        </div>
+        <div class="ma-container__md" style="border: 1px solid green;">
+            <strong>.ma-container__md</strong> - Possibilidade de definir um max-width por variavel css (--max-width-mg), com valor default de 1500px;
+        </div>
+        <div class="ma-container__sm" style="border: 1px solid cyan;">
+            <strong>.ma-container__sm</strong> - Possibilidade de definir um max-width por variavel css (--max-width-sm), com valor default de 1400px;
+        </div>
+        <div class="ma-container__xs" style="border: 1px solid pink;">
+            <strong>.ma-container__xs</strong> - Possibilidade de definir um max-width por variavel css (--max-width-xs), com valor default de 1400px;
+        </div>
+    </section>
+
+    <section class="ma-section">
+        <span class="ma-title">GRID</span>
+        <div class="ma-container">
+            <div class="grid-definida">
+                <div class="ma-col col-header">HEADER</div>
+                <div class="ma-col col-menu-lateral">MENU</div>
+                <div class="ma-col col-conteudo">CONTEUDO</div>
+                <div class="ma-col col-footer">FOOTER</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ma-section">
+        <span class="ma-title">ESCOLHER ONDE CADA COLUNA COMEÇA/ACABA</span>
+        <div class="ma-container">
+            <div class="ma-grid">
+                <div class="ma-col-start-2 ma-col-end-5">.ma-col-start-2 .ma-col-end-5</div>
+                <div class="ma-col-start-6 ma-col-end-10">.ma-col-start-6 .ma-col-end-10</div>
+                <div class="ma-col-start-11 ma-col-end-13">.ma-col-start-11 .ma-col-end-13</div>
+                <div class="ma-col-start-1 ma-col-end-7">.ma-col-start-1 .ma-col-end-7</div>
+                <div class="ma-col-start-8 ma-col-end-13">.ma-col-start-8 .ma-col-end-13</div>
+                <div class="ma-col-start-1 ma-col-end-3 ma-row-start-3 ma-row-end-6">.ma-col-start-1 .ma-col-end-3 .ma-row-end-4</div>
+                <div class="ma-col-start-5 ma-col-start-13">.ma-col-start-5 .ma-col-start-13</div>
+                <div class="ma-col-1 ma-col-start-3">.ma-col-1 .ma-col-start-3</div>
+                <div class="ma-col-1 ma-col-start-4">.ma-col-1 .ma-col-start-4</div>
+                <div class="ma-col-start-5">.ma-col-start-5</div>
+                <div class="ma-col-start-4 ma-col-end-13">.ma-col-start-4 .ma-col-end-13</div>
+            </div>
+        </div>
+        <p>
+
+        </p>
+    </section>
+
+    
+    <section class="ma-section">
+        <span class="ma-title">GRID RESPONSIVA</span>
+        <div class="ma-container">
+            <div class="minha-grid-responsiva">
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ma-section">
+        <span class="ma-title">ATÉ 12 COLUNAS</span>
+        <div class="ma-container">
+            <div class="minha-grid">
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+                <div class="ma-col">.ma-col-1</div>
+            </div>
+            <p>
+                <code>
+                    .minha-grid {
+                        @include ma-grid-auto();
+                    }
+                </code>
+            </p>
+            <p>
+                Chamar 'ma-grid-auto' usa os valores default <code>($grid-gap: 10px, $min-width: 7%, $min-width-lg: 7%, $min-width-md: 15%, $min-width-sm: 30%, $min-width-xs: 45%)</code>, 
+                que tem 12 colunas em resoluçoes grandes e vai ajustando consoante resize da janela.<br />
+                Os valores minimos enviados no include definem o numero de colunas possiveis consoante a resoluçao da janela.<br />
+                Optimo para fazer listagens completamente responsivas.
+            </p>
+        </div>
+    </section>
+
+    <section class="ma-section">
+        <span class="ma-title">Prova conceito</span>
+        <div class='ma-container__lg'>
+            <div class="banner-intro">
+                <div class="banner-intro__textos">
+                    <h1>
+                        Garantir a rastreabilidade de espécies de peixes selecionadas no Rio Minho
+                    </h1>
+                    <p>
+                        É objetivo fornecer ao mercado de consumo, 
+                        produtos da pesca valorizados pela garantia da autenticidade e pela exploração sustentável, 
+                        proporcionando a satisfação do consumidor e promovendo a responsabilidade social. 
+                    </p>
+                    <span class="btn">Saiba mais</span>
+                    <span class="btn btn--reverse">Adira ao projeto</span>
+                </div>
+                <div class="banner-intro__imagem">
+                    <img src="assets/imgs/imagem_intro.jpg" alt="banner-image">
+                </div>
+            </div>
+
+            <pre>
+                .banner-intro {
+                    @include ma-grid(12, 24px); //CONSTROI A GRID COM 12 COLUNAS E 24PX DE GAB
+                      
+                    &__textos {
+                        @include ma-col-position(2, 7); //COLOCA ESTE BLOCO A INICIAR NA COLUNA 2 E ACABAR NA COLUNA 7
+                          text-align: left;
+                        }
+                      
+                    &__imagem {
+                        padding-left: 7%;
+                        @include ma-col-position(7, 13); //COLOCA ESTE BLOCO A INICIAR NA COLUNA82 E ACABAR NA COLUNA 13
+                    
+                        img {
+                          display: block;
+                          width: 100%;
+                          object-fit: contain;
+                        } 
+                    }
+                }
+            </pre>
+            <p>
+                Pode parecer não haver vantagens em usar este metodo, é um modulo facilmente construido com flexbox ou ate mesmo
+                display:inline-block,
+                mas assim conseguimos replicar fielmente o layout no invision, pois tbm é usada uma grid de 12 colunas.
+            </p>
+            <img class="img-exemplo" src="assets/imgs/banner-invision.jpg" alt="invision">
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+$grid-columns: 12;
+
+:root {
+  --max-width-lg: 1655px;
+}
+
+.ma-container {
+  width: 95%;
+  margin: 0 auto;
+
+  &__lg {
+    width: var(--width-lg, 95%);
+    max-width: var(--max-width-lg, 1600px);
+    margin: 0 auto;
+  }
+
+  &__md {
+    width: var(--width-md, 95%);
+    max-width: var(--max-width-md, 1500px);
+    margin: 0 auto;
+  }
+
+  &__sm {
+    width: var(--width-sm, 95%);
+    max-width: var(--max-width-sm, 1400px);
+    margin: 0 auto;
+  }
+
+  &__xs {
+    width: var(--width-xs, 95%);
+    max-width: var(--max-width-xs, 1300px);
+    margin: 0 auto;
+  }
+}
+
+//MIXINS PARA CRIAR GRIDS CUSTOM
+@mixin ma-grid($col-number, $grid-gap: 0) {
+  display: grid;
+  grid-gap: $grid-gap; // default value is 0.
+
+  @if $col-number <= 12 { //MAX COL 12
+    grid-template-columns: repeat($col-number, 1fr);
+  }
+  @else {
+    grid-template-columns: repeat(12, 1fr); // grid has 12 flexible columns by default.
+  }
+
+  box-sizing: border-box;
+}
+
+//definir posicao na coluna
+@mixin ma-col-position($col-start, $col-end) {
+  grid-column-start: $col-start;
+  grid-column-end: $col-end;
+}
+
+//definir posicao na linha
+@mixin ma-row-position($row-start, $row-end) {
+  grid-row-start: $row-start;
+  grid-row-end: $row-end;
+}
+
+//MIXIN PARA CRIAR GRID RESPONSIVA
+@mixin ma-grid-auto($grid-gap: 10px, $min-width: 7%, $min-width-lg: 7%, $min-width-md: 15%, $min-width-sm: 30%, $min-width-xs: 45%) {
+  display: grid;
+  grid-gap: $grid-gap;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+
+  //mini
+  @media only screen and (max-width : 700px) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width-xs, 1fr));
+  }
+
+  //small
+  @media only screen and (min-width : 701px) and (max-width : 980px) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width-sm, 1fr));
+  }
+
+  // normal
+  @media only screen and (min-width : 981px) and (max-width : 1220px) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width-md, 1fr));
+  }
+
+  // large {
+  @media only screen and (min-width : 1221px) and (max-width : 1500px) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width-lg, 1fr));
+  }
+}
+
+//CLASSES PRE CRIADAS QUE PODEM SER USADAS RAPIDAMENTE MAS NAO OPTIMO RESPONSIVAMENTE
+.ma-grid {
+  --grid-cols: #{$grid-columns};
+
+  display: grid;
+  grid-gap: var(--grid-gap, 0);
+  grid-template-columns: repeat(var(--grid-cols), 1fr); 
+  box-sizing: border-box;
+    
+  & > * {
+    grid-column-end: span var(--grid-cols); //CASO div DENTRO DA GRID NAO TENHAM CLASS DE ma-col FICAM AUTOMATICAMENTE A 100%
+  }
+}
+  
+//CRIAR UMA CLASS PARA CADA COLUNA
+@for $i from 1 through $grid-columns {
+  .ma-col-#{$i} { grid-column-end: span #{$i}; }
+
+  .ma-col-start-#{$i} { grid-column-start: #{$i}; } //usar esta class para definir onde coluna começa
+  .ma-col-end-#{$i+1} { grid-column-end: #{$i+1}; } //usar esta class para definir onde coluna acaba
+
+  .ma-row-start-#{$i} { grid-row-start: #{$i}; } //usar esta class para definir onde linha começa
+  .ma-row-end-#{$i+1} { grid-row-end: #{$i+1}; } //usar esta class para definir onde linha começa
+}
+
+// Auto responsive grid
+//1rem = 10px
+.ma-grid-auto {
+    $min-width: var(--col-min-width);
+    
+    display: grid;
+    grid-gap: var(--grid-gap, 0);
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+}
+
+.ma-grid-auto-xs { --col-min-width: 8rem } // 80px
+.ma-grid-auto-sm { --col-min-width: 10rem } // 100px
+.ma-grid-auto-md { --col-min-width: 15rem } // 150px
+.ma-grid-auto-lg { --col-min-width: 20rem } // 200px
+.ma-grid-auto-xl { --col-min-width: 25rem } // 250px
+
+.ma-grid-gap-xs { --grid-gap: var(--space-xs, 0.5rem); }
+.ma-grid-gap-sm { --grid-gap: var(--space-sm, 0.75rem); }
+.ma-grid-gap-md { --grid-gap: var(--space-md, 1.25rem); }
+.ma-grid-gap-lg { --grid-gap: var(--space-lg, 2rem); }
+.ma-grid-gap-xl { --grid-gap: var(--space-xl, 3.25rem); }
+
+//Exemplo usos
+//POSICOES DEFINIDAS
+.grid-definida {
+  @include ma-grid(12, 20px)
+}
+
+.col-header {
+  @include ma-col-position(1, 13);
+}
+
+.col-menu-lateral {
+  @include ma-col-position(1, 4);
+}
+
+.col-conteudo {
+  @include ma-col-position(4, 13);
+}
+
+.col-footer {
+  @include ma-col-position(1, 13);
+}
+
+//RESPONSIVO
+.minha-grid {
+  @include ma-grid-auto();
+}
+
+.minha-grid-responsiva {
+  @include ma-grid-auto(20px, 25%, 25%, 30%, 30%, 45%);
+}
+
+//EXEMPLO PRATICO
+.banner-intro {
+  @include ma-grid(12, 24px);
+
+  &__textos {
+    @include ma-col-position(2, 7);
+    text-align: left;
+
+    h1 {
+      font-size: 54px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 66px;
+      margin-bottom: 41px;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 32px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__imagem {
+    padding-left: 7%;
+    @include ma-col-position(7, 13);
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.btn {
+  padding: 20px 30px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  background: #2F7472;
+  border: 2px solid #2F7472;
+
+  &--reverse {
+    color: #2F7472;
+    background: white;
+  }
+}
